@@ -33,7 +33,7 @@ function main() {
 		opClick(iaNum, ia, result, youNum, iaNum, count, victory, defeat, matchNull);
 	});
 	reset.addEventListener("click", function(){
-		resetGame(victory, defeat, matchNull, you, ia);
+		resetGame(victory, defeat, matchNull, you, ia, instantResult);
 	});
 }
 
@@ -103,12 +103,13 @@ function calcWL(victory, defeat, matchNull, result, instantResult)
 	}
 }
 
-function resetGame(victory, defeat, matchNull, you, ia) {
+function resetGame(victory, defeat, matchNull, you, ia, instantResult) {
 	you.style.backgroundImage = "none";
 	ia.style.backgroundImage = "none";
-	victory.innerHTML = 0;
-	defeat.innerHTML = 0;
-	matchNull.innerHTML = 0;
+	victory.innerHTML = 0+" Win";
+	defeat.innerHTML = 0+" Lose";
+	matchNull.innerHTML = 0+" Null";
+	instantResult.innerHTML = "";
 }
 
 main();
