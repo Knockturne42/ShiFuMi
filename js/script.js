@@ -6,12 +6,14 @@ function main() {
 	var ia = document.getElementById('ia');
 	var count = 0;
 	var result;
+	var screen = document.getElementById('screen');
 	var victory = document.getElementById('win');
 	var defeat = document.getElementById('lose');
 	var matchNull = document.getElementById('egal');
 	var youNum;
 	var iaNum;
 	var reset = document.getElementById('reset');
+	var contin = document.getElementById('continue');
 	var instantResult = document.getElementById('instantResult');
 
 	shi.addEventListener("click", function(){
@@ -19,21 +21,31 @@ function main() {
 		bgi(you);
 		youNum = 0;
 		opClick(iaNum, ia, result, youNum, iaNum, count, victory, defeat, matchNull);
+		alert("Présent !");
+		screen.style.display = "flex";
+		screen.style.flexWrap = "wrap";
 	});
 	fu.addEventListener("click", function(){
 		you.style.backgroundImage = "url('img/paspied.jpeg')";
 		bgi(you);
 		youNum = 1;
 		opClick(iaNum, ia, result, youNum, iaNum, count, victory, defeat, matchNull);
+		screen.style.display = "flex";
+		screen.style.flexWrap = "wrap";
 	});
 	mi.addEventListener("click", function(){
 		you.style.backgroundImage = "url('img/sixseau.jpg')";
 		bgi(you);
 		youNum = 2;
 		opClick(iaNum, ia, result, youNum, iaNum, count, victory, defeat, matchNull);
+		screen.style.display = "flex";
+		screen.style.flexWrap = "wrap";
 	});
 	reset.addEventListener("click", function(){
-		resetGame(victory, defeat, matchNull, you, ia, instantResult);
+		resetGame(victory, defeat, matchNull, you, ia, instantResult, screen);
+	});
+	contin.addEventListener("click", function(){
+		screen.style.display = "none";
 	});
 }
 
@@ -103,13 +115,14 @@ function calcWL(victory, defeat, matchNull, result, instantResult)
 	}
 }
 
-function resetGame(victory, defeat, matchNull, you, ia, instantResult) {
+function resetGame(victory, defeat, matchNull, you, ia, instantResult, screen) {
 	you.style.backgroundImage = "none";
 	ia.style.backgroundImage = "none";
 	victory.innerHTML = 0+" Win";
 	defeat.innerHTML = 0+" Lose";
 	matchNull.innerHTML = 0+" Null";
 	instantResult.innerHTML = "";
+	screen.style.display = "none";
 }
 
 main();
