@@ -97,13 +97,13 @@ function vict(youNum, iaNum) {
 
 function calcWL(victory, defeat, matchNull, result, instantResult)
 {
-	if (result == 0)
+	if (result == 2)
 	{
 		instantResult.innerHTML = "You Win This Time";
 		victory.innerHTML = (parseInt(victory.innerHTML) + 1)+" Win";
 	}
 
-	else if (result == 2)
+	else if (result == 0)
 	{
 		instantResult.innerHTML = "You Lose This Time";
 		defeat.innerHTML = (parseInt(defeat.innerHTML) + 1)+" Lose";
